@@ -2,7 +2,7 @@ import Enquirer from 'enquirer'
 
 const enquirer = new Enquirer()
 
-function add() {
+export function add() {
   enquirer.prompt([
     {
       type: 'input',
@@ -19,5 +19,3 @@ function add() {
     console.log(`Your password is ${password}`)
   })
 }
-
-export default add

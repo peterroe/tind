@@ -40,5 +40,11 @@
     "unbuild": "0.7.4",
     "vite": "2.9.9",
     "vitest": "0.13.0"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "execa": "^6.1.0",
+    "fs-extra": "^10.1.0",
+    "ora": "^6.1.0"
   }
 }
