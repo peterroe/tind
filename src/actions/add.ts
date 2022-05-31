@@ -1,4 +1,6 @@
 import Enquirer from 'enquirer'
+import type { accountType } from '../types'
+import { getPassWordJson, postPassWordJson } from '../utils'
 
 const enquirer = new Enquirer()
 
@@ -6,7 +8,7 @@ export function add() {
   enquirer.prompt([
     {
       type: 'input',
-      name: 'name',
+      name: 'username',
       message: 'What is your usename?',
     },
     {
@@ -14,8 +16,17 @@ export function add() {
       name: 'password',
       message: 'What is your password?',
     },
-  ]).then(({ name, password }) => {
-    console.log(`Hello ${name}!`)
-    console.log(`Your password is ${password}`)
+    {
+      type: 'input',
+      name: 'description',
+      message: 'What is your description?',
+    },
+  ]).then((account: accountType) => {
+    // console.log(`Hello ${username}!`)
+    // console.log(`Your password is ${password}`)
+    // console.log(`Your description is ${description}`)
+    const accounts = getPassWordJson()
+    accounts.push(account)
+    postPassWordJson(accounts)
   })
 }

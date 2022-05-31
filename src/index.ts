@@ -1,7 +1,6 @@
-import { cac } from 'cac'
 import pkg from '../package.json'
-import { add, login } from './actions'
-const cli = cac()
+import cli from './cli'
+import { add, login, show } from './actions'
 
 cli.option('--type <type>', 'Choose a project type', {
   default: 'node',
@@ -11,6 +10,7 @@ cli.option('--name <name>', 'Provide your name')
 
 cli.command('login', 'inject your github repo').action(login)
 cli.command('add', 'new acount').action(add)
+cli.command('show', 'show all acounts').action(show)
 // cli.command('add [...files]', 'Lint files').action(add)
 // cli.command('update [...files]', 'Lint files').action(update)
 

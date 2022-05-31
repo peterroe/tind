@@ -1,6 +1,8 @@
 import os from 'os'
 import path from 'path'
+import fs from 'fs-extra'
 import ora from 'ora'
+import type { accountType } from '../types'
 
 export const home = os.homedir()
 
@@ -14,4 +16,13 @@ export function showAnimationLoading(beginWord: string, endWord: string, callBac
   const spinner = ora(beginWord).start()
   callBack()
   spinner.succeed(endWord)
+}
+
+export function getPassWordJson() {
+  // https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson-sync.md
+  return fs.readJsonSync(passWordJson, { throws: false }) || []
+}
+
+export function postPassWordJson(newAccounts: accountType[]) {
+  return fs.writeJsonSync(passWordJson, newAccounts)
 }

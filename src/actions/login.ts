@@ -1,7 +1,7 @@
 import Enquirer from 'enquirer'
 import { execa } from 'execa'
 import fs from 'fs-extra'
-import { dotTind, passWordJson, showAnimation } from '../utils'
+import { dotTind, passWordJson, showAnimationLoading } from '../utils'
 const enquirer = new Enquirer()
 
 export async function login() {
@@ -12,7 +12,7 @@ export async function login() {
       message: 'What is your repo address?',
     },
   ])
-  showAnimation('clone repo to local...', 'login success!', async () => {
+  showAnimationLoading('clone repo to local...', 'login success!', async () => {
     const res = await fs.ensureDir(dotTind)
     res && await execa('git', ['clone', repo, passWordJson]) // clone to local if none
     await fs.ensureFile(passWordJson)
