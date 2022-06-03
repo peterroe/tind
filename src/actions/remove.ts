@@ -3,21 +3,22 @@ import consola from 'consola'
 import { getPassWordJson, postPassWordJson } from '../utils'
 import type { accountType } from '../types'
 
-export async function remove(options) {
+export async function remove({ id }) {
   const accounts: accountType[] = await getPassWordJson()
-
-  const { id } = options || await inquirer.prompt({
-    type: 'list',
-    name: 'id',
-    message: '请选择要删除的账户',
-    choices: accounts.map(it => `${it.id}: ${it.description} - ${it.username}@${it.password}`),
-    filter: it => Number(it.split(':')[0].trim()),
-  })
+  if (!id) {
+    id = (await inquirer.prompt({
+      type: 'list',
+      name: 'id',
+      message: 'Please select an account to delete',
+      choices: accounts.map(it => `${it.id}: ${it.description} - ${it.username}@${it.password}`),
+      filter: it => Number(it.split(':')[0].trim()),
+    })).id
+  }
 
   const targetIndex = accounts.findIndex(it => it.id === id)
 
   accounts.splice(targetIndex, 1)
   postPassWordJson(accounts)
 
-  consola.success('删除成功')
+  consola.success('successfully deleted')
 }

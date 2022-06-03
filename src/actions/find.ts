@@ -6,14 +6,14 @@ export async function find() {
   const { field } = await inquirer.prompt({
     type: 'list',
     name: 'field',
-    message: '请选择要查找的字段',
+    message: 'Please select the field you are looking for',
     choices: ['description', 'username', 'password'],
   })
 
   const { value } = await inquirer.prompt({
     type: 'input',
     name: 'value',
-    message: '请输入要查找的值',
+    message: 'Please enter the value you are looking for',
   })
 
   const accounts: accountType[] = getPassWordJson()
@@ -27,7 +27,7 @@ export async function quickFind() {
   const { value } = await inquirer.prompt({
     type: 'input',
     name: 'value',
-    message: '请输入要查找的值',
+    message: 'Please enter the value you are looking for',
   })
 
   const accounts: accountType[] = getPassWordJson()

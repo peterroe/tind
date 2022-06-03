@@ -1,6 +1,6 @@
 import inquirer from 'inquirer'
 import type { accountType } from '../types'
-import { getPassWordJson, postPassWordJson, getMaxId } from '../utils'
+import { getMaxId, getPassWordJson, postPassWordJson } from '../utils'
 
 export async function add() {
   const account: accountType = await inquirer.prompt([

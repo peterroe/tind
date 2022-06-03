@@ -14,7 +14,7 @@ export async function login() {
   ])
   showAnimationLoading('clone repo to local...', 'login success!', async () => {
     const res = await fs.ensureDir(dotTind)
-    res && await execa('git', ['clone', repo, passWordJson]) // clone to local if none
+    res && await execa('git', ['clone', repo, dotTind]) // clone to local if none
     await fs.ensureFile(passWordJson)
   })
 }

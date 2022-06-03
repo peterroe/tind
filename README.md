@@ -14,12 +14,22 @@ $ npm install -g tind
 
 ## Login
 
+First, you need to create a **new** and **private** repository, and make sure it has a `.git` directory. Such as: `https://github.com/peterroe/password`.
+
+Then, you can login to the repository:
+
 ```shell
-$ npm login
+$ tind login
 ? What is your repo address? › https://github.com/peterroe/password
 ```
 
 ## Usage
+
+```shell
+# add a new account
+$ tind add
+
+## More
 
 ```
 $ tind -h 
