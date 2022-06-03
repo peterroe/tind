@@ -20,7 +20,7 @@ Then, you can login to the repository:
 
 ```shell
 $ tind login
-? What is your repo address? › https://github.com/peterroe/password
+? What is your repo address? › git@github.com:peterroe/password.git
 ```
 
 ## Usage
