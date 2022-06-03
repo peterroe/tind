@@ -1,8 +1,8 @@
-## Tind
-
 <p align="center">
-  <img src="http://rcwqxz0v4.hn-bkt.clouddn.com/download.png" />
+  <img width="600" src="http://rcwqxz0v4.hn-bkt.clouddn.com/test.svg" />
 </p>
+
+## Tind
 
 Password manager for the terminal.
 
