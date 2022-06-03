@@ -1,16 +1,23 @@
 import inquirer from 'inquirer'
+import consola from 'consola'
 import { getPassWordJson, postPassWordJson } from '../utils'
 import type { accountType } from '../types'
 
 export async function remove() {
   const accounts: accountType[] = await getPassWordJson()
-  const data = await inquirer.prompt({
+
+  const { id } = await inquirer.prompt({
     type: 'list',
-    name: 'chosen',
-    choices: accounts.map(it => JSON.stringify(it)),
-    filter: it => JSON.parse(it),
+    name: 'id',
+    message: '请选择要删除的账户',
+    choices: accounts.map(it => `${it.id}: ${it.description} - ${it.username}@${it.password}`),
+    filter: it => Number(it.split(':')[0].trim()),
   })
-  const { id } = data.chosen
-  accounts.splice(accounts.findIndex(it => it.id === id), 1)
+
+  const targetIndex = accounts.findIndex(it => it.id === id)
+
+  accounts.splice(targetIndex, 1)
   postPassWordJson(accounts)
+
+  consola.success('删除成功')
 }

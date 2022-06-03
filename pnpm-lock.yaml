@@ -4,6 +4,7 @@ specifiers:
   '@antfu/eslint-config': 0.24.2
   cac: ^6.7.12
   chalk: ^5.0.1
+  consola: ^2.15.3
   enquirer: ^2.3.6
   eslint: 8.16.0
   esno: 0.16.3
@@ -19,6 +20,7 @@ specifiers:
 
 dependencies:
   chalk: 5.0.1
+  consola: 2.15.3
   execa: 6.1.0
   fs-extra: 10.1.0
   inquirer: 8.2.4
@@ -1320,7 +1322,6 @@ packages:
 
   /consola/2.15.3:
     resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
-    dev: true
 
   /convert-source-map/1.8.0:
     resolution: {integrity: sha512-+OQdjP49zViI/6i7nIJpA8rAl4sV/JdPfU9nZs3VqOwGIgizICvuN2ru6fMd+4llL0tar18UYJXfZ/TWtmhUjA==}

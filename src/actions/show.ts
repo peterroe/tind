@@ -1,5 +1,9 @@
 import { getPassWordJson } from '../utils'
+import type { accountType } from '../types'
 
 export function show() {
-  console.table(getPassWordJson())
+  const accounts: accountType[] = getPassWordJson()
+  const keys = ['description', 'username', 'password']
+
+  console.table(accounts, keys)
 }
