@@ -1,14 +1,18 @@
-## tind
+## Tind
 
-password manager for the terminal.
+<p align="center">
+  <img src="http://rcwqxz0v4.hn-bkt.clouddn.com/download.png" />
+</p>
 
-## install
+Password manager for the terminal.
+
+## Install
 
 ```shell
 $ npm install -g tind
 ```
 
-## login
+## Login
 
 ```shell
 $ npm login
