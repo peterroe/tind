@@ -1,11 +1,9 @@
-import Enquirer from 'enquirer'
+import inquirer from 'inquirer'
 import type { accountType } from '../types'
 import { getPassWordJson, postPassWordJson } from '../utils'
 
-const enquirer = new Enquirer()
-
 export function add() {
-  enquirer.prompt([
+  inquirer.prompt([
     {
       type: 'input',
       name: 'username',
