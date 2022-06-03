@@ -3,10 +3,10 @@ import consola from 'consola'
 import { getPassWordJson, postPassWordJson } from '../utils'
 import type { accountType } from '../types'
 
-export async function remove() {
+export async function remove(options) {
   const accounts: accountType[] = await getPassWordJson()
 
-  const { id } = await inquirer.prompt({
+  const { id } = options || await inquirer.prompt({
     type: 'list',
     name: 'id',
     message: '请选择要删除的账户',
