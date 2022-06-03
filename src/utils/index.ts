@@ -18,11 +18,17 @@ export function showAnimationLoading(beginWord: string, endWord: string, callBac
   spinner.succeed(endWord)
 }
 
-export function getPassWordJson() {
+export function getPassWordJson(): Promise<accountType[]> {
   // https://github.com/jprichardson/node-fs-extra/blob/master/docs/readJson-sync.md
   return fs.readJsonSync(passWordJson, { throws: false }) || []
 }
 
 export function postPassWordJson(newAccounts: accountType[]) {
-  return fs.writeJsonSync(passWordJson, newAccounts)
+  return fs.writeJsonSync(passWordJson, newAccounts) || []
+}
+
+export function getMaxId(accounts: accountType[]): number {
+  return accounts.reduce((maxId, account) => {
+    return account.id > maxId ? account.id : maxId
+  }, 0)
 }

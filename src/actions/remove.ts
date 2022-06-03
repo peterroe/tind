@@ -1,20 +1,16 @@
 import inquirer from 'inquirer'
+import { getPassWordJson, postPassWordJson } from '../utils'
+import type { accountType } from '../types'
 
-export function remove() {
-  inquirer
-  .prompt({
+export async function remove() {
+  const accounts: accountType[] = await getPassWordJson()
+  const data = await inquirer.prompt({
     type: 'list',
-    name: 'sdsfsdf',
-    choices: [234,434,65]
+    name: 'chosen',
+    choices: accounts.map(it => JSON.stringify(it)),
+    filter: it => JSON.parse(it),
   })
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
+  const { id } = data.chosen
+  accounts.splice(accounts.findIndex(it => it.id === id), 1)
+  postPassWordJson(accounts)
 }

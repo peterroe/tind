@@ -1,9 +1,9 @@
 import inquirer from 'inquirer'
 import type { accountType } from '../types'
-import { getPassWordJson, postPassWordJson } from '../utils'
+import { getPassWordJson, postPassWordJson, getMaxId } from '../utils'
 
-export function add() {
-  inquirer.prompt([
+export async function add() {
+  const account: accountType = await inquirer.prompt([
     {
       type: 'input',
       name: 'username',
@@ -19,12 +19,12 @@ export function add() {
       name: 'description',
       message: 'What is your description?',
     },
-  ]).then((account: accountType) => {
-    // console.log(`Hello ${username}!`)
-    // console.log(`Your password is ${password}`)
-    // console.log(`Your description is ${description}`)
-    const accounts = getPassWordJson()
-    accounts.push(account)
-    postPassWordJson(accounts)
-  })
+  ])
+  const accounts = getPassWordJson()
+
+  const id = getMaxId(accounts)
+  account.id = id + 1
+  accounts.push(account)
+
+  postPassWordJson(accounts)
 }
