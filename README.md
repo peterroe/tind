@@ -25,9 +25,9 @@ $ tind login
 
 ## Usage
 
-```shell
-# add a new account
-$ tind add
+<p align="center">
+  <img src="http://rcwqxz0v4.hn-bkt.clouddn.com/Snipaste_2022-06-04_00-56-44.png">
+</p>
 
 ## More
 
