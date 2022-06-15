@@ -54,3 +54,5 @@ export function getMaxId(accounts: accountType[]): number {
     return account.id > maxId ? account.id : maxId
   }, 0)
 }
+
+export * from './cli'

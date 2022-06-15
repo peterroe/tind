@@ -9,7 +9,7 @@ export async function login() {
     {
       type: 'input',
       name: 'name',
-      message: 'What is your acount name?',
+      message: 'What is your github username?',
     },
   ])
   const hub = `git@github.com:${name}/password.git`
