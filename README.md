@@ -12,24 +12,7 @@ Password manager for the terminal.
 $ npm install -g tind
 ```
 
-## Login
-
-First, you need to create a **new** and **private** repository, and make sure it has a `.git` directory. Such as: `https://github.com/peterroe/password` or `git@github.com:peterroe/password.git`.
-
-Then, you can login to the repository:
-
-```shell
-$ tind login
-? What is your repo address? › git@github.com:peterroe/password.git
-```
-
 ## Usage
-
-<p align="center">
-  <img src="http://rcwqxz0v4.hn-bkt.clouddn.com/Snipaste_2022-06-04_00-56-44.png">
-</p>
-
-## More
 
 ```
 $ tind -h 
